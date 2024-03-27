@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DevJobs</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_first_fragment">DevJobs es una aplicación móvil dedicada a proporcionar a los desarrolladores de software una forma conveniente de explorar diferentes ofertas de empleo de diversas fuentes.</string>
+    <string name="txt_second_fragment">"Dentro de \"Empleos\", podrás buscar las ofertas según tu oficio dentro del basto mundo del desarrollo de software y según el país al que deseas buscar empleo. Te va aparecer todos los resultados acorde a tus criterios de búsqueda. "</string>
+    <string name="txt_third_fragment">En DevJobs támbien puedes consultar el aproximado sueldo para los difrentes roles dentro del mercado laboral del software y el país que deseas buscar. Para eso vas a \"¿Cuánto gana un …?\" y realizar la búsqueda según tus preferencias.</string>
 </resources>

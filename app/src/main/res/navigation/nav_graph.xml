@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragmentTutorial">
+
+    <fragment
+        android:id="@+id/firstFragmentTutorial"
+        android:name="com.devjobs.app.views.fragments.FirstFragmentTutorial"
+        android:label="fragment_first_tutorial"
+        tools:layout="@layout/fragment_first_tutorial" >
+        <action
+            android:id="@+id/action_firstFragmentTutorial_to_secondFragmentTutorial"
+            app:destination="@id/secondFragmentTutorial" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragmentTutorial"
+        android:name="com.devjobs.app.views.fragments.SecondFragmentTutorial"
+        android:label="fragment_second_tutorial"
+        tools:layout="@layout/fragment_second_tutorial" >
+        <action
+            android:id="@+id/action_secondFragmentTutorial_to_thirdFragmentTutorial"
+            app:destination="@id/thirdFragmentTutorial" />
+        <action
+            android:id="@+id/action_secondFragmentTutorial_to_firstFragmentTutorial"
+            app:destination="@id/firstFragmentTutorial" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragmentTutorial"
+        android:name="com.devjobs.app.views.fragments.ThirdFragmentTutorial"
+        android:label="fragment_third_tutorial"
+        tools:layout="@layout/fragment_third_tutorial" >
+        <action
+            android:id="@+id/action_thirdFragmentTutorial_to_secondFragmentTutorial"
+            app:destination="@id/secondFragmentTutorial" />
+    </fragment>
+</navigation>
