@@ -3,7 +3,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
     tools:context=".views.fragments.JobsFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:height="60dp"
+                android:background="@drawable/border_menu_item_selected"
+                android:drawableTop="@drawable/baseline_work_outline_24"
+                android:text="Empleos"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:height="60dp"
+                android:background="@drawable/border_menu_item_no_selected"
+                android:drawableTop="@drawable/baseline_attach_money_24"
+                android:text="¿Cuánto gana un...?"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/etSearchJob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/background_edtitext"
+            android:drawableLeft="@drawable/baseline_work_outline_primary"
+            android:ems="10"
+            android:fontFamily="@font/barlow_medium"
+            android:hint="Empleo que buscas"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="#6D6D6D" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <EditText
+            android:id="@+id/etSearchCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/background_edtitext"
+            android:drawableLeft="@drawable/outline_add_location_alt_24"
+            android:ems="10"
+            android:fontFamily="@font/barlow_medium"
+            android:hint="País o Ciudad"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="#6D6D6D" />
+    </LinearLayout>
 </FrameLayout>

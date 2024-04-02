@@ -7,28 +7,30 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.devjobs.app.R
-import com.devjobs.app.databinding.FragmentJobsBinding
+import com.devjobs.app.databinding.FragmentChooseLocationBinding
 
 
-class JobsFragment : Fragment() {
+class ChooseLocationFragment : Fragment() {
 
-    private var _binding:FragmentJobsBinding? = null
+    private var _binding:FragmentChooseLocationBinding? = null
     private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentJobsBinding.inflate(layoutInflater)
+        _binding = FragmentChooseLocationBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.etSearchCountry.setOnFocusChangeListener {_, hasFocus ->
-            if (hasFocus) {
-                findNavController().navigate(JobsFragmentDirections.actionJobsFragmentToChooseLocationFragment2())
-            }
+        setupBotones()
+    }
+
+    private fun setupBotones() {
+        binding.btnBackArrow.setOnClickListener {
+            findNavController().navigate(ChooseLocationFragmentDirections.actionChooseLocationFragment2ToJobsFragment())
         }
     }
+
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_pages_graph"
+    app:startDestination="@id/jobsFragment">
+
+    <fragment
+        android:id="@+id/chooseLocationFragment2"
+        android:name="com.devjobs.app.views.fragments.ChooseLocationFragment"
+        android:label="fragment_choose_location"
+        tools:layout="@layout/fragment_choose_location" >
+        <action
+            android:id="@+id/action_chooseLocationFragment2_to_jobsFragment"
+            app:destination="@id/jobsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/jobsFragment"
+        android:name="com.devjobs.app.views.fragments.JobsFragment"
+        android:label="fragment_jobs"
+        tools:layout="@layout/fragment_jobs" >
+        <action
+            android:id="@+id/action_jobsFragment_to_chooseLocationFragment2"
+            app:destination="@id/chooseLocationFragment2" />
+    </fragment>
+</navigation>

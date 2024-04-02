@@ -31,6 +31,9 @@ class ThirdFragmentTutorial : Fragment() {
         binding.btnBackSecondTutorial.setOnClickListener {
             findNavController().navigate(ThirdFragmentTutorialDirections.actionThirdFragmentTutorialToSecondFragmentTutorial())
         }
+        binding.btnGoApp.setOnClickListener {
+            findNavController().navigate(ThirdFragmentTutorialDirections.actionThirdFragmentTutorialToHomePage())
+        }
     }
 
 

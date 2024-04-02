@@ -39,10 +39,11 @@
 
     <Button
         android:id="@+id/btnGoSecondTutorial"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="67dp"
         android:backgroundTint="@color/primary"
+        android:textAllCaps="false"
         android:drawableEnd="@drawable/baseline_arrow_forward_24"
         android:text="Siguiente"
         android:textColor="@color/white"

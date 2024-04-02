@@ -58,6 +58,7 @@
             android:text="Atras"
             android:textColor="@color/white"
             android:textSize="16dp"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -71,6 +72,7 @@
         <Button
             android:id="@+id/btnGoThirdTutorial"
             android:layout_width="150dp"
+            android:textAllCaps="false"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/primary"
             android:drawableEnd="@drawable/baseline_arrow_forward_24"
