@@ -35,4 +35,9 @@
             android:id="@+id/action_thirdFragmentTutorial_to_secondFragmentTutorial"
             app:destination="@id/secondFragmentTutorial" />
     </fragment>
+    <fragment
+        android:id="@+id/jobsFragment"
+        android:name="com.devjobs.app.views.fragments.JobsFragment"
+        android:label="fragment_jobs"
+        tools:layout="@layout/fragment_jobs" />
 </navigation>
