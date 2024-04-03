@@ -5,6 +5,7 @@ import android.widget.Button
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.devjobs.app.R
+import com.devjobs.app.util.ManageSharedPreferences
 import com.devjobs.app.views.fragments.ChooseLocationFragmentDirections
 
 class LocationViewHolder(private val view:View) : RecyclerView.ViewHolder(view){
@@ -15,9 +16,12 @@ class LocationViewHolder(private val view:View) : RecyclerView.ViewHolder(view){
         btnChooseLocation.text = location
 
         btnChooseLocation.setOnClickListener {
-            view.findNavController().navigate(ChooseLocationFragmentDirections.actionChooseLocationFragment2ToJobsFragment(
-                location
-            ))
+            ManageSharedPreferences.savePreferences(
+                view.context.getString(R.string.key_location_selected),
+                location,
+                view.context
+                )
+            view.findNavController().navigate(ChooseLocationFragmentDirections.actionChooseLocationFragment2ToJobsFragment())
         }
     }
 

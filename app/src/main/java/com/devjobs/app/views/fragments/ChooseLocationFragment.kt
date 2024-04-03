@@ -17,6 +17,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devjobs.app.R
 import com.devjobs.app.databinding.FragmentChooseLocationBinding
+import com.devjobs.app.util.ManageSharedPreferences
 import com.devjobs.app.viewmodels.LocationViewModel
 import com.devjobs.app.views.adapters.LocationAdapter
 
@@ -26,7 +27,8 @@ class ChooseLocationFragment : Fragment() {
     private var _binding:FragmentChooseLocationBinding? = null
     private val binding get() = _binding!!
     private val locationViewModel:LocationViewModel by viewModels()
-    private val args:ChooseLocationFragmentArgs by navArgs()
+    private var locationSelected:String = ""
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,18 +39,24 @@ class ChooseLocationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initValues()
         initSearch()
         setupBotones()
         searchLocations()
     }
 
+    private fun initValues() {
+        locationSelected = ManageSharedPreferences.getPreferences(getString(R.string.key_location_selected), requireContext())
+        Log.d("locatiopn", locationSelected)
+    }
+
     private fun initSearch() {
-        locationViewModel.searchLocations(args.locationSelected!!)
+        locationViewModel.searchLocations(locationSelected)
     }
 
     private fun searchLocations() {
         val etChooseLocation:EditText = binding.etChooseLocation
-        etChooseLocation.setText(args.locationSelected)
+        etChooseLocation.setText(locationSelected)
         binding.btnClearQuery.visibility = View.VISIBLE
         etChooseLocation.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -88,10 +96,7 @@ class ChooseLocationFragment : Fragment() {
     private fun setupBotones() {
 
         binding.btnBackArrow.setOnClickListener {
-            findNavController().navigate(ChooseLocationFragmentDirections.actionChooseLocationFragment2ToJobsFragment(
-              locationSelected = args.locationSelected!!,
-                professionSelected = null
-            ))
+            findNavController().navigate(ChooseLocationFragmentDirections.actionChooseLocationFragment2ToJobsFragment())
         }
 
         binding.btnClearQuery.setOnClickListener {

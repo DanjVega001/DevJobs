@@ -5,4 +5,7 @@
     <string name="txt_second_fragment">"Dentro de \"Empleos\", podrás buscar las ofertas según tu oficio dentro del basto mundo del desarrollo de software y según el país al que deseas buscar empleo. Te va aparecer todos los resultados acorde a tus criterios de búsqueda. "</string>
     <string name="txt_third_fragment">En DevJobs támbien puedes consultar el aproximado sueldo para los difrentes roles dentro del mercado laboral del software y el país que deseas buscar. Para eso vas a \"¿Cuánto gana un …?\" y realizar la búsqueda según tus preferencias.</string>
     <string name="title_activity_home_page">HomePage</string>
+    <string name="preferences_key">preferences_key</string>
+    <string name="key_location_selected">location_selected</string>
+    <string name="key_profession_selected">profession_selected</string>
 </resources>

@@ -20,7 +20,7 @@ class LocationAdapter(private val locations:List<String>) : RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: LocationViewHolder, position: Int) {
-        val location:String = locations[position];
+        val location:String = locations[position]
         holder.bind(location)
     }
 }

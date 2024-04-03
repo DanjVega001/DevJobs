@@ -1,5 +1,6 @@
 package com.devjobs.app.views.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +14,7 @@ class ProfessionAdapter(private val professions:List<String>):RecyclerView.Adapt
     }
 
     override fun getItemCount(): Int {
-        return professions.size
+        return this.professions.size
     }
 
     override fun onBindViewHolder(holder: ProfessionViewHolder, position: Int) {

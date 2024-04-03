@@ -10,13 +10,16 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.devjobs.app.R
 import com.devjobs.app.databinding.FragmentJobsBinding
+import com.devjobs.app.util.ManageSharedPreferences
 
 
 class JobsFragment : Fragment() {
 
     private var _binding:FragmentJobsBinding? = null
     private val binding get() = _binding!!
-    private val args:JobsFragmentArgs by navArgs()
+    private var locationSelected = ""
+    private var professionSelected = ""
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,32 +31,42 @@ class JobsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initValues()
         selectedLocation()
         selectedProfession()
     }
 
+    private fun initValues() {
+        locationSelected = ManageSharedPreferences.getPreferences(getString(R.string.key_location_selected), requireContext())
+        professionSelected = ManageSharedPreferences.getPreferences(getString(R.string.key_profession_selected), requireContext())
+
+    }
+
     private fun selectedLocation(){
-        if (args.locationSelected != "") {
-            binding.etSearchCountry.setText(args.locationSelected)
+        if (locationSelected != "") {
+            binding.etSearchCountry.setText(locationSelected)
         }
         binding.etSearchCountry.setOnFocusChangeListener {_, hasFocus ->
+
+            ManageSharedPreferences.savePreferences(getString(R.string.key_location_selected),
+                binding.etSearchCountry.text.toString(),
+                requireContext())
             if (hasFocus) {
-                findNavController().navigate(JobsFragmentDirections.actionJobsFragmentToChooseLocationFragment2(
-                    locationSelected = binding.etSearchCountry.text.toString()
-                ))
+                findNavController().navigate(JobsFragmentDirections.actionJobsFragmentToChooseLocationFragment2())
             }
         }
     }
 
     private fun selectedProfession(){
-        if (args.professionSelected != "") {
-            binding.etSearchJob.setText(args.professionSelected)
+        if (professionSelected != "") {
+            binding.etSearchJob.setText(professionSelected)
         }
         binding.etSearchJob.setOnFocusChangeListener {_, hasFocus ->
             if (hasFocus) {
-                findNavController().navigate(JobsFragmentDirections.actionJobsFragmentToChooseProfessionFragment(
-                    professionSelected = binding.etSearchCountry.text.toString()
-                ))
+                ManageSharedPreferences.savePreferences(getString(R.string.key_profession_selected),
+                    binding.etSearchJob.text.toString(),
+                    requireContext())
+                findNavController().navigate(JobsFragmentDirections.actionJobsFragmentToChooseProfessionFragment())
             }
         }
     }

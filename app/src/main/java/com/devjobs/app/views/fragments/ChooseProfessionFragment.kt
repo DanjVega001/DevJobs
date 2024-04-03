@@ -15,6 +15,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devjobs.app.R
 import com.devjobs.app.databinding.FragmentChooseProfessionBinding
+import com.devjobs.app.util.ManageSharedPreferences
 import com.devjobs.app.viewmodels.LocationViewModel
 import com.devjobs.app.viewmodels.ProfessionViewModel
 import com.devjobs.app.views.adapters.LocationAdapter
@@ -26,7 +27,7 @@ class ChooseProfessionFragment : Fragment() {
     private var _binding:FragmentChooseProfessionBinding? = null
     private val binding get() = _binding!!
     private val professionViewModel: ProfessionViewModel by viewModels()
-    private val args:ChooseProfessionFragmentArgs by navArgs()
+    private var professionSelected = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,17 +38,24 @@ class ChooseProfessionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initValues()
         initSearch()
         setupBotones()
         searchProfessions()
     }
 
+    private fun initValues() {
+        professionSelected = ManageSharedPreferences.getPreferences(getString(R.string.key_profession_selected), requireContext())
+    }
+
     private fun initSearch() {
-        professionViewModel.searchProfession(args.professionSelected!!)
+        professionViewModel.searchProfession(professionSelected)
     }
 
     private fun searchProfessions() {
         val etChooseProfession = binding.etChooseProfession
+        etChooseProfession.setText(professionSelected)
+        binding.btnClearQueryProfession.visibility = View.VISIBLE
         etChooseProfession.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (s.toString() != ""){
@@ -85,10 +93,7 @@ class ChooseProfessionFragment : Fragment() {
     private fun setupBotones() {
 
         binding.btnBackArrowProfession.setOnClickListener {
-            findNavController().navigate(ChooseProfessionFragmentDirections.actionChooseProfessionFragmentToJobsFragment(
-                locationSelected = null,
-                professionSelected = args.professionSelected
-            ))
+            findNavController().navigate(ChooseProfessionFragmentDirections.actionChooseProfessionFragmentToJobsFragment())
         }
 
         binding.btnClearQueryProfession.setOnClickListener {
