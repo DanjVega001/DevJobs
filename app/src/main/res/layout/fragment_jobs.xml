@@ -90,6 +90,7 @@
             android:paddingTop="15dp"
             android:paddingRight="20dp"
             android:paddingBottom="15dp"
+            android:text="Colombia"
             android:textColor="@color/black"
             android:textColorHint="#6D6D6D" />
     </LinearLayout>

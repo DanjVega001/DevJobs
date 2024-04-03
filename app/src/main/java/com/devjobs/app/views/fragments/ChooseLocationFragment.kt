@@ -13,6 +13,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devjobs.app.R
 import com.devjobs.app.databinding.FragmentChooseLocationBinding
@@ -25,6 +26,7 @@ class ChooseLocationFragment : Fragment() {
     private var _binding:FragmentChooseLocationBinding? = null
     private val binding get() = _binding!!
     private val locationViewModel:LocationViewModel by viewModels()
+    private val args:ChooseLocationFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,12 +37,18 @@ class ChooseLocationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initSearch()
         setupBotones()
         searchLocations()
     }
 
+    private fun initSearch() {
+        locationViewModel.searchLocations(args.locationSelected!!)
+    }
+
     private fun searchLocations() {
         val etChooseLocation:EditText = binding.etChooseLocation
+        etChooseLocation.setText(args.locationSelected)
         etChooseLocation.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (s.toString() != ""){
@@ -71,7 +79,7 @@ class ChooseLocationFragment : Fragment() {
                 binding.rvChooseLocation.setHasFixedSize(true)
                 binding.rvChooseLocation.layoutManager = LinearLayoutManager(context)
                 binding.rvChooseLocation.adapter = LocationAdapter(
-                    data
+                    data, args.locationSelected!!
                 )
             })
     }
@@ -79,7 +87,9 @@ class ChooseLocationFragment : Fragment() {
     private fun setupBotones() {
 
         binding.btnBackArrow.setOnClickListener {
-            findNavController().navigate(ChooseLocationFragmentDirections.actionChooseLocationFragment2ToJobsFragment())
+            findNavController().navigate(ChooseLocationFragmentDirections.actionChooseLocationFragment2ToJobsFragment(
+              locationSelected = args.locationSelected!!
+            ))
         }
 
         binding.btnClearQuery.setOnClickListener {

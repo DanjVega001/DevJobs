@@ -53,19 +53,19 @@ class Locations {
         fun getLocations(query:String):List<String>{
             return locations.filter {
                 location ->
-                val locationFilter = unaccent(location)
-                locationFilter.lowercase().contains(regexQuery(unaccent(query)))
+                val locationFilter = unaccented(location)
+                locationFilter.lowercase().contains(regexQuery(unaccented(query)))
             }
         }
 
-        private fun unaccent(query: String): String {
+        private fun unaccented(query: String): String {
             var regex = "\\p{InCombiningDiacriticalMarks}+".toRegex()
 
             val temp = Normalizer.normalize(query, Normalizer.Form.NFD)
             return regex.replace(temp, "")
         }
 
-        fun regexQuery(filterQuery:String):Regex {
+        private fun regexQuery(filterQuery:String):Regex {
             return Regex("^${filterQuery.lowercase()}")
         }
 

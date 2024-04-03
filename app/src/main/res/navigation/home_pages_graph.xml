@@ -13,6 +13,11 @@
         <action
             android:id="@+id/action_chooseLocationFragment2_to_jobsFragment"
             app:destination="@id/jobsFragment" />
+        <argument
+            android:name="locationSelected"
+            app:argType="string"
+            app:nullable="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/jobsFragment"
@@ -22,5 +27,11 @@
         <action
             android:id="@+id/action_jobsFragment_to_chooseLocationFragment2"
             app:destination="@id/chooseLocationFragment2" />
+        <argument
+            android:name="locationSelected"
+            app:nullable="true"
+            android:defaultValue=""
+            app:argType="string" />
     </fragment>
+
 </navigation>
