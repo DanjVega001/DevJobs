@@ -15,7 +15,7 @@
 
 
         <EditText
-            android:id="@+id/etSearchLocation"
+            android:id="@+id/etChooseLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_edtitext"
@@ -31,14 +31,16 @@
             android:textColorHint="#6D6D6D" />
 
         <ImageButton
+            android:id="@+id/btnClearQuery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/baseline_close_24"
             android:background="@android:color/transparent"
+            android:onClick="onClickButton"
             android:padding="8dp"
-            android:onClick="onClickButton" />
+            android:src="@drawable/baseline_close_24"
+            android:visibility="invisible" />
 
         <ImageButton
             android:id="@+id/btnBackArrow"
@@ -51,5 +53,11 @@
             android:padding="8dp"
             android:src="@drawable/baseline_arrow_back_black" />
     </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChooseLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp" />
 
 </FrameLayout>

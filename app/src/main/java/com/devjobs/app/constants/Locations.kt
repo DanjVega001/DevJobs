@@ -1,5 +1,7 @@
 package com.devjobs.app.constants
 
+import java.text.Normalizer
+
 
 class Locations {
 
@@ -47,10 +49,25 @@ class Locations {
             "Brasil", "São Paulo", "Rio de Janeiro", "Belo Horizonte", "Brasília", "Salvador"
         )
 
+
         fun getLocations(query:String):List<String>{
             return locations.filter {
-                city -> city.lowercase().contains(Regex("^${query}"))
+                location ->
+                val locationFilter = unaccent(location)
+                locationFilter.lowercase().contains(regexQuery(unaccent(query)))
             }
         }
+
+        private fun unaccent(query: String): String {
+            var regex = "\\p{InCombiningDiacriticalMarks}+".toRegex()
+
+            val temp = Normalizer.normalize(query, Normalizer.Form.NFD)
+            return regex.replace(temp, "")
+        }
+
+        fun regexQuery(filterQuery:String):Regex {
+            return Regex("^${filterQuery.lowercase()}")
+        }
+
     }
 }

@@ -29,13 +29,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="jobsFragment">
+                  <entry key="homePage">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="217" />
-                            <option name="y" value="-472" />
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -78,6 +78,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_thirdFragmentTutorial_to_homePage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_thirdFragmentTutorial_to_secondFragmentTutorial">
                               <value>
                                 <LayoutPositions />
