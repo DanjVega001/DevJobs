@@ -46,11 +46,10 @@ class JobsFragment : Fragment() {
         if (locationSelected != "") {
             binding.etSearchCountry.setText(locationSelected)
         }
+        ManageSharedPreferences.savePreferences(getString(R.string.key_location_selected),
+            binding.etSearchCountry.text.toString(),
+            requireContext())
         binding.etSearchCountry.setOnFocusChangeListener {_, hasFocus ->
-
-            ManageSharedPreferences.savePreferences(getString(R.string.key_location_selected),
-                binding.etSearchCountry.text.toString(),
-                requireContext())
             if (hasFocus) {
                 findNavController().navigate(JobsFragmentDirections.actionJobsFragmentToChooseLocationFragment2())
             }
