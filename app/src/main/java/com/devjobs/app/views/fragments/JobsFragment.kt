@@ -1,6 +1,7 @@
 package com.devjobs.app.views.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,6 +29,7 @@ class JobsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         selectedLocation()
+        selectedProfession()
     }
 
     private fun selectedLocation(){
@@ -38,6 +40,19 @@ class JobsFragment : Fragment() {
             if (hasFocus) {
                 findNavController().navigate(JobsFragmentDirections.actionJobsFragmentToChooseLocationFragment2(
                     locationSelected = binding.etSearchCountry.text.toString()
+                ))
+            }
+        }
+    }
+
+    private fun selectedProfession(){
+        if (args.professionSelected != "") {
+            binding.etSearchJob.setText(args.professionSelected)
+        }
+        binding.etSearchJob.setOnFocusChangeListener {_, hasFocus ->
+            if (hasFocus) {
+                findNavController().navigate(JobsFragmentDirections.actionJobsFragmentToChooseProfessionFragment(
+                    professionSelected = binding.etSearchCountry.text.toString()
                 ))
             }
         }

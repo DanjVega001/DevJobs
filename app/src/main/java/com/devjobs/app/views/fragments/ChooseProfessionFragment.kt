@@ -8,30 +8,30 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devjobs.app.R
-import com.devjobs.app.databinding.FragmentChooseLocationBinding
+import com.devjobs.app.databinding.FragmentChooseProfessionBinding
 import com.devjobs.app.viewmodels.LocationViewModel
+import com.devjobs.app.viewmodels.ProfessionViewModel
 import com.devjobs.app.views.adapters.LocationAdapter
+import com.devjobs.app.views.adapters.ProfessionAdapter
 
 
-class ChooseLocationFragment : Fragment() {
+class ChooseProfessionFragment : Fragment() {
 
-    private var _binding:FragmentChooseLocationBinding? = null
+    private var _binding:FragmentChooseProfessionBinding? = null
     private val binding get() = _binding!!
-    private val locationViewModel:LocationViewModel by viewModels()
-    private val args:ChooseLocationFragmentArgs by navArgs()
+    private val professionViewModel: ProfessionViewModel by viewModels()
+    private val args:ChooseProfessionFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentChooseLocationBinding.inflate(layoutInflater)
+    ): View? {
+        _binding = FragmentChooseProfessionBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -39,24 +39,22 @@ class ChooseLocationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initSearch()
         setupBotones()
-        searchLocations()
+        searchProfessions()
     }
 
     private fun initSearch() {
-        locationViewModel.searchLocations(args.locationSelected!!)
+        professionViewModel.searchProfession(args.professionSelected!!)
     }
 
-    private fun searchLocations() {
-        val etChooseLocation:EditText = binding.etChooseLocation
-        etChooseLocation.setText(args.locationSelected)
-        binding.btnClearQuery.visibility = View.VISIBLE
-        etChooseLocation.addTextChangedListener(object : TextWatcher {
+    private fun searchProfessions() {
+        val etChooseProfession = binding.etChooseProfession
+        etChooseProfession.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (s.toString() != ""){
-                    binding.btnClearQuery.visibility = View.VISIBLE
+                    binding.btnClearQueryProfession.visibility = View.VISIBLE
                 }
                 else {
-                    binding.btnClearQuery.visibility = View.INVISIBLE
+                    binding.btnClearQueryProfession.visibility = View.INVISIBLE
                 }
             }
 
@@ -65,21 +63,20 @@ class ChooseLocationFragment : Fragment() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                locationViewModel.searchLocations(s.toString())
+                professionViewModel.searchProfession(s.toString())
             }
         })
 
         setupRecyclerView()
-
     }
 
     private fun setupRecyclerView() {
 
-        locationViewModel.locationsModel.observe(viewLifecycleOwner,
+        professionViewModel.professionModel.observe(viewLifecycleOwner,
             Observer {data ->
-                binding.rvChooseLocation.setHasFixedSize(true)
-                binding.rvChooseLocation.layoutManager = LinearLayoutManager(context)
-                binding.rvChooseLocation.adapter = LocationAdapter(
+                binding.rvChooseProfession.setHasFixedSize(true)
+                binding.rvChooseProfession.layoutManager = LinearLayoutManager(context)
+                binding.rvChooseProfession.adapter = ProfessionAdapter(
                     data
                 )
             })
@@ -87,15 +84,15 @@ class ChooseLocationFragment : Fragment() {
 
     private fun setupBotones() {
 
-        binding.btnBackArrow.setOnClickListener {
-            findNavController().navigate(ChooseLocationFragmentDirections.actionChooseLocationFragment2ToJobsFragment(
-              locationSelected = args.locationSelected!!,
-                professionSelected = null
+        binding.btnBackArrowProfession.setOnClickListener {
+            findNavController().navigate(ChooseProfessionFragmentDirections.actionChooseProfessionFragmentToJobsFragment(
+                locationSelected = null,
+                professionSelected = args.professionSelected
             ))
         }
 
-        binding.btnClearQuery.setOnClickListener {
-            binding.etChooseLocation.setText("")
+        binding.btnClearQueryProfession.setOnClickListener {
+            binding.etChooseProfession.setText("")
         }
     }
 

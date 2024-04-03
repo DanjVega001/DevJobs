@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.devjobs.app.R
 
-class LocationAdapter(private val locations:List<String>, private val argLocationSelected:String) : RecyclerView.Adapter<LocationViewHolder>() {
+class LocationAdapter(private val locations:List<String>) : RecyclerView.Adapter<LocationViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocationViewHolder {

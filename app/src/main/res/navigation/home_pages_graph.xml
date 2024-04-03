@@ -32,6 +32,25 @@
             app:nullable="true"
             android:defaultValue=""
             app:argType="string" />
+        <action
+            android:id="@+id/action_jobsFragment_to_chooseProfessionFragment"
+            app:destination="@id/chooseProfessionFragment" />
+        <argument
+            android:name="professionSelected"
+            app:argType="string"
+            android:defaultValue=""
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseProfessionFragment"
+        android:name="com.devjobs.app.views.fragments.ChooseProfessionFragment"
+        android:label="fragment_choose_profession"
+        tools:layout="@layout/fragment_choose_profession" >
+        <action
+            android:id="@+id/action_chooseProfessionFragment_to_jobsFragment"
+            app:destination="@id/jobsFragment" />
+        <argument android:name="professionSelected"
+            app:argType="string" />
     </fragment>
 
 </navigation>
