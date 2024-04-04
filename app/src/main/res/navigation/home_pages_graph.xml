@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/chooseLocationFragment2"
-        android:name="com.devjobs.app.views.fragments.ChooseLocationFragment"
+        android:name="com.devjobs.app.ui.views.fragments.ChooseLocationFragment"
         android:label="fragment_choose_location"
         tools:layout="@layout/fragment_choose_location" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/jobsFragment"
-        android:name="com.devjobs.app.views.fragments.JobsFragment"
+        android:name="com.devjobs.app.ui.views.fragments.JobsFragment"
         android:label="fragment_jobs"
         tools:layout="@layout/fragment_jobs" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/chooseProfessionFragment"
-        android:name="com.devjobs.app.views.fragments.ChooseProfessionFragment"
+        android:name="com.devjobs.app.ui.views.fragments.ChooseProfessionFragment"
         android:label="fragment_choose_profession"
         tools:layout="@layout/fragment_choose_profession" >
         <action

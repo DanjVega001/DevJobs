@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:backgroundTint="@color/white"
-    tools:context=".views.fragments.JobsFragment">
+    tools:context=".ui.views.fragments.JobsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

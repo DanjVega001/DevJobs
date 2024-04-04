@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/firstFragmentTutorial"
-        android:name="com.devjobs.app.views.fragments.FirstFragmentTutorial"
+        android:name="com.devjobs.app.ui.views.fragments.FirstFragmentTutorial"
         android:label="fragment_first_tutorial"
         tools:layout="@layout/fragment_first_tutorial" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondFragmentTutorial"
-        android:name="com.devjobs.app.views.fragments.SecondFragmentTutorial"
+        android:name="com.devjobs.app.ui.views.fragments.SecondFragmentTutorial"
         android:label="fragment_second_tutorial"
         tools:layout="@layout/fragment_second_tutorial" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/thirdFragmentTutorial"
-        android:name="com.devjobs.app.views.fragments.ThirdFragmentTutorial"
+        android:name="com.devjobs.app.ui.views.fragments.ThirdFragmentTutorial"
         android:label="fragment_third_tutorial"
         tools:layout="@layout/fragment_third_tutorial" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <activity
         android:id="@+id/homePage"
-        android:name="com.devjobs.app.views.activities.HomePage"
+        android:name="com.devjobs.app.ui.views.activities.HomePage"
         android:label="activity_home_page"
         tools:layout="@layout/activity_home_page" />
 </navigation>

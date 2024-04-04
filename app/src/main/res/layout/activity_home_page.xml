@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:paddingTop="20dp"
     android:paddingBottom="20dp"
-    tools:context=".views.activities.HomePage">
+    tools:context=".ui.views.activities.HomePage">
 
 
     <androidx.fragment.app.FragmentContainerView
