@@ -12,7 +12,8 @@ class JobViewModel : ViewModel(){
     var searchJobsUsecase = SearchJobsUsecase()
     fun searchJobs(profession:String, location:String){
         viewModelScope.launch {
-            searchJobsUsecase(profession, location)
+            val result = searchJobsUsecase(profession, location)
+            jobsModel.postValue(result)
         }
     }
 

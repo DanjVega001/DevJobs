@@ -3,12 +3,10 @@ package com.devjobs.app.ui.views.adapters
 import android.view.View
 import android.widget.Button
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.devjobs.app.R
 import com.devjobs.app.core.util.ManageSharedPreferences
-import com.devjobs.app.views.fragments.ChooseLocationFragmentDirections
-import com.devjobs.app.views.fragments.ChooseProfessionFragmentDirections
+import com.devjobs.app.ui.views.fragments.ChooseProfessionFragmentDirections
 
 class ProfessionViewHolder(private val view: View) : ViewHolder(view) {
 

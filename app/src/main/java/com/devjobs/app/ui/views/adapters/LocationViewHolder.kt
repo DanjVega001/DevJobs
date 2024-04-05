@@ -6,7 +6,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.devjobs.app.R
 import com.devjobs.app.core.util.ManageSharedPreferences
-import com.devjobs.app.views.fragments.ChooseLocationFragmentDirections
+import com.devjobs.app.ui.views.fragments.ChooseLocationFragmentDirections
 
 class LocationViewHolder(private val view:View) : RecyclerView.ViewHolder(view){
 

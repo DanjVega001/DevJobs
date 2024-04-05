@@ -9,7 +9,7 @@ class HeadersInterceptor : Interceptor {
 
 
         val request = original.newBuilder()
-            .header("X-RapidAPI-Key", "455ed2d47emshca7805eb88961bfp172e2fjsn360e41984366")
+            .header("X-RapidAPI-Key", "a0af7b798amsh7c2cfe35c586887p1d6334jsnd0573421cd9f")
             .header("X-RapidAPI-Host", "jsearch.p.rapidapi.com")
             .method(original.method(), original.body())
             .build()

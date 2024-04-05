@@ -8,4 +8,5 @@
     <string name="preferences_key">preferences_key</string>
     <string name="key_location_selected">location_selected</string>
     <string name="key_profession_selected">profession_selected</string>
+
 </resources>
