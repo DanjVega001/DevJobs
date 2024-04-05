@@ -18,9 +18,11 @@ class JobViewHolder(private val view:View): ViewHolder(view){
     private val txtNameEmployer:TextView = view.findViewById(R.id.txtNameEmployer)
     private val txtCityName:TextView = view.findViewById(R.id.txtCityName)
     private val txtCountryName:TextView = view.findViewById(R.id.txtCountryName)
+    private val txtSeparator:TextView = view.findViewById(R.id.txtSeparador)
 
 
     fun bind(job: Job) {
+        if (job.jobCity == null) txtSeparator.visibility = View.GONE
         if (job.employerLogo == null) Picasso.get().load(Constants.URL_NO_IMAGE).into(imgLogoEmployer)
         else Picasso.get().load(job.employerLogo).into(imgLogoEmployer)
         txtJobTitle.text = job.jobTitle
