@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -15,6 +16,7 @@ import com.devjobs.app.R
 import com.devjobs.app.databinding.FragmentJobsBinding
 import com.devjobs.app.core.util.ManageSharedPreferences
 import com.devjobs.app.ui.viewmodels.JobViewModel
+import com.devjobs.app.ui.views.activities.HomePage
 import com.devjobs.app.ui.views.adapters.JobAdapter
 
 
@@ -32,6 +34,7 @@ class JobsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentJobsBinding.inflate(layoutInflater)
+        Log.d("PASS", "EFEF")
         return binding.root
     }
 
@@ -39,21 +42,25 @@ class JobsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initValues()
         initSearch()
-        selectedLocation()
-        selectedProfession()
     }
 
     private fun initSearch() {
-        if (professionSelected.isNotEmpty()){
+        if (professionSelected.isNotEmpty()) {
             jobViewModel.searchJobs(professionSelected, locationSelected)
         }
+        val act = requireActivity()
+        if (act is HomePage){
+            val linearLayout = act.findViewById<LinearLayout>(R.id.linearlayoutHome)
+            linearLayout.visibility = View.VISIBLE
+            jobViewModel.jobsModel.observe(viewLifecycleOwner, Observer {
+                binding.rvJobs.setHasFixedSize(true)
+                binding.rvJobs.layoutManager = LinearLayoutManager(context)
+                binding.rvJobs.adapter = JobAdapter(it, linearLayout)
+                binding.txtResTotales.text = it.size.toString()
+            })
+        }
 
-        jobViewModel.jobsModel.observe(viewLifecycleOwner, Observer {
-            binding.rvJobs.setHasFixedSize(true)
-            binding.rvJobs.layoutManager = LinearLayoutManager(context)
-            binding.rvJobs.adapter = JobAdapter(it)
-            binding.txtResTotales.text = it.size.toString()
-        })
+
 
     }
 
@@ -62,31 +69,5 @@ class JobsFragment : Fragment() {
         professionSelected = ManageSharedPreferences.getPreferences(getString(R.string.key_profession_selected), requireContext())
     }
 
-    private fun selectedLocation(){
-        if (locationSelected != "") {
-            binding.etSearchCountry.setText(locationSelected)
-        }
-        ManageSharedPreferences.savePreferences(getString(R.string.key_location_selected),
-            binding.etSearchCountry.text.toString(),
-            requireContext())
-        binding.etSearchCountry.setOnFocusChangeListener {_, hasFocus ->
-            if (hasFocus) {
-                findNavController().navigate(JobsFragmentDirections.actionJobsFragmentToChooseLocationFragment2())
-            }
-        }
-    }
 
-    private fun selectedProfession(){
-        if (professionSelected != "") {
-            binding.etSearchJob.setText(professionSelected)
-        }
-        binding.etSearchJob.setOnFocusChangeListener {_, hasFocus ->
-            if (hasFocus) {
-                ManageSharedPreferences.savePreferences(getString(R.string.key_profession_selected),
-                    binding.etSearchJob.text.toString(),
-                    requireContext())
-                findNavController().navigate(JobsFragmentDirections.actionJobsFragmentToChooseProfessionFragment())
-            }
-        }
-    }
 }

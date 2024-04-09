@@ -13,12 +13,17 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="445" />
-                            <option name="y" value="151" />
+                            <option name="x" value="460" />
+                            <option name="y" value="242" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_chooseLocationFragment2_to_homePage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_chooseLocationFragment2_to_jobsFragment">
                               <value>
                                 <LayoutPositions />
@@ -34,13 +39,51 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="449" />
-                            <option name="y" value="-145" />
+                            <option name="x" value="451" />
+                            <option name="y" value="-523" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_chooseProfessionFragment_to_homePage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_chooseProfessionFragment_to_jobsFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="homePage">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="840" />
+                            <option name="y" value="-9" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="jobDetailFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="210" />
+                            <option name="y" value="537" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_jobDetailFragment_to_jobsFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -55,8 +98,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
+                            <option name="x" value="-6" />
+                            <option name="y" value="-81" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -71,7 +114,24 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_jobsFragment_to_jobDetailFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="salaryJobFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="437" />
+                            <option name="y" value="-144" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

@@ -1,5 +1,6 @@
 package com.devjobs.app.ui.views.adapters
 
+import android.app.Activity
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup

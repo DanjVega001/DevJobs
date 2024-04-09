@@ -1,9 +1,11 @@
 package com.devjobs.app.ui.views.adapters
 
+import android.app.Activity
 import android.view.View
 import android.widget.Button
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.devjobs.app.MainActivity
 import com.devjobs.app.R
 import com.devjobs.app.core.util.ManageSharedPreferences
 import com.devjobs.app.ui.views.fragments.ChooseProfessionFragmentDirections
@@ -21,7 +23,7 @@ class ProfessionViewHolder(private val view: View) : ViewHolder(view) {
                 profession,
                 view.context
             )
-            view.findNavController().navigate(ChooseProfessionFragmentDirections.actionChooseProfessionFragmentToJobsFragment())
+            view.findNavController().navigate(ChooseProfessionFragmentDirections.actionChooseProfessionFragmentToHomePage())
         }
     }
 

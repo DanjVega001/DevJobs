@@ -96,7 +96,7 @@ class ChooseLocationFragment : Fragment() {
     private fun setupBotones() {
 
         binding.btnBackArrow.setOnClickListener {
-            findNavController().navigate(ChooseLocationFragmentDirections.actionChooseLocationFragment2ToJobsFragment())
+            findNavController().navigate(ChooseLocationFragmentDirections.actionChooseLocationFragment2ToHomePage())
         }
 
         binding.btnClearQuery.setOnClickListener {

@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$PROJECT_DIR$/../../../../../sdk-android-studio/Sdk/icons/material/materialicons/attach_money/baseline_attach_money_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Android/Sdk/icons/material/materialicons/keyboard_arrow_down/baseline_keyboard_arrow_down_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,8 +28,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="baseline_attach_money_24" />
-                            <entry key="sourceFile" value="C:\Users\SENA\Documents\proyectos\DevJobs" />
+                            <entry key="color" value="217074" />
+                            <entry key="outputName" value="baseline_keyboard_arrow_down_24" />
+                            <entry key="sourceFile" value="$USER_HOME$/C:\Users\SENA\Documents\proyectos\DevJobs" />
                           </map>
                         </option>
                       </PersistentState>

@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,6 +35,7 @@ class ChooseProfessionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentChooseProfessionBinding.inflate(layoutInflater)
+        Log.d("PASSS,", "ERER")
         return binding.root
     }
 
@@ -86,7 +88,7 @@ class ChooseProfessionFragment : Fragment() {
                 binding.rvChooseProfession.setHasFixedSize(true)
                 binding.rvChooseProfession.layoutManager = LinearLayoutManager(context)
                 binding.rvChooseProfession.adapter = ProfessionAdapter(
-                    data
+                    data,
                 )
             })
     }
@@ -94,7 +96,7 @@ class ChooseProfessionFragment : Fragment() {
     private fun setupBotones() {
 
         binding.btnBackArrowProfession.setOnClickListener {
-            findNavController().navigate(ChooseProfessionFragmentDirections.actionChooseProfessionFragmentToJobsFragment())
+            findNavController().navigate(ChooseProfessionFragmentDirections.actionChooseProfessionFragmentToHomePage())
         }
 
         binding.btnClearQueryProfession.setOnClickListener {

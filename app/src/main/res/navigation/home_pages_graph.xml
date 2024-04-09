@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_chooseLocationFragment2_to_jobsFragment"
             app:destination="@id/jobsFragment" />
+        <action
+            android:id="@+id/action_chooseLocationFragment2_to_homePage"
+            app:destination="@id/homePage" />
     </fragment>
     <fragment
         android:id="@+id/jobsFragment"
@@ -25,6 +28,12 @@
         <action
             android:id="@+id/action_jobsFragment_to_chooseProfessionFragment"
             app:destination="@id/chooseProfessionFragment" />
+        <action
+            android:id="@+id/action_jobsFragment_to_jobDetailFragment"
+            app:destination="@id/jobDetailFragment" />
+        <action
+            android:id="@+id/action_jobsFragment_to_salaryJobFragment"
+            app:destination="@id/salaryJobFragment" />
     </fragment>
     <fragment
         android:id="@+id/chooseProfessionFragment"
@@ -34,6 +43,31 @@
         <action
             android:id="@+id/action_chooseProfessionFragment_to_jobsFragment"
             app:destination="@id/jobsFragment" />
+        <action
+            android:id="@+id/action_chooseProfessionFragment_to_homePage"
+            app:destination="@id/homePage" />
     </fragment>
+    <fragment
+        android:id="@+id/jobDetailFragment"
+        android:name="com.devjobs.app.ui.views.fragments.JobDetailFragment"
+        android:label="fragment_job_detail"
+        tools:layout="@layout/fragment_job_detail" >
+        <action
+            android:id="@+id/action_jobDetailFragment_to_jobsFragment"
+            app:destination="@id/jobsFragment" />
+        <argument
+            android:name="jobID"
+            app:argType="string" />
+    </fragment>
+    <activity
+        android:id="@+id/homePage"
+        android:name="com.devjobs.app.ui.views.activities.HomePage"
+        android:label="activity_home_page"
+        tools:layout="@layout/activity_home_page" />
+    <fragment
+        android:id="@+id/salaryJobFragment"
+        android:name="com.devjobs.app.ui.views.fragments.SalaryJobFragment"
+        android:label="fragment_salary_job"
+        tools:layout="@layout/fragment_salary_job" />
 
 </navigation>

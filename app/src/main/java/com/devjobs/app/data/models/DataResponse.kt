@@ -6,6 +6,12 @@ data class SearchJobsDataResponse(
 )
 
 data class SearchJobDetailsDataResponse(
-    val data:JobDetails,
+    val data:List<JobDetails>,
     val status:String
 )
+
+data class EstimatedSalaryDataResponse(
+    val data: List<Salary>,
+    val status:String
+)
+

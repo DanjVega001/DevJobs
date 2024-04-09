@@ -9,20 +9,114 @@
     android:paddingBottom="20dp"
     tools:context=".ui.views.activities.HomePage">
 
+    <LinearLayout
+        android:id="@+id/linearlayoutHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <EditText
+            android:id="@+id/etSearchJob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/background_edtitext"
+            android:drawableLeft="@drawable/baseline_work_outline_primary"
+            android:ems="10"
+            android:fontFamily="@font/barlow_medium"
+            android:hint="Empleo que buscas"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="#6D6D6D" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <EditText
+            android:id="@+id/etSearchCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/background_edtitext"
+            android:drawableLeft="@drawable/outline_add_location_alt_24"
+            android:ems="10"
+            android:fontFamily="@font/barlow_medium"
+            android:hint="País o Ciudad"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="15dp"
+            android:text="Colombia"
+            android:textColor="@color/black"
+            android:textColorHint="#6D6D6D" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp">
+
+            <Button
+                android:id="@+id/btnEmpleos"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:height="60dp"
+                android:background="@drawable/border_menu_item_selected"
+                android:drawableTop="@drawable/baseline_work_outline_24"
+                android:text="Empleos"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnCuantoGana"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:height="60dp"
+                android:background="@drawable/border_menu_item_no_selected"
+                android:drawableTop="@drawable/baseline_attach_money_24"
+                android:text="¿Cuánto gana?"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/navHostFragment"
+        android:id="@+id/navHostFragmentPages"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        app:layout_constraintTop_toTopOf="parent"
-        app:defaultNavHost="true"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearlayoutHome"
+        app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/home_pages_graph" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

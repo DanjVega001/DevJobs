@@ -21,7 +21,7 @@ class LocationViewHolder(private val view:View) : RecyclerView.ViewHolder(view){
                 location,
                 view.context
                 )
-            view.findNavController().navigate(ChooseLocationFragmentDirections.actionChooseLocationFragment2ToJobsFragment())
+            view.findNavController().navigate(ChooseLocationFragmentDirections.actionChooseLocationFragment2ToHomePage())
         }
     }
 
